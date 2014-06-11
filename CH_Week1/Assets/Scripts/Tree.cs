@@ -41,8 +41,11 @@ public class Tree : MonoBehaviour {
 	}
 
 	public void GenerateDirection () {
-		xForce = Random.Range (-1f, 1f) * 15f;
-		zForce = Random.Range (-1f, 1f) * 15f;
+		xForce = Random.Range (-1f, 1f) * 5f;
+		zForce = Random.Range (-1f, 1f) * 5f;
+		if (rigidbody.velocity.magnitude > 10) {
+			rigidbody.velocity = rigidbody.velocity.normalized * 9.5f;
+		}
 	}
 
 	public void MoveTree () {
