@@ -6,8 +6,10 @@ public class PlayerManager : MonoBehaviour {
 	//Fields
 	public float speed;
 	public bool lowerCamera, increaseCamera, isMoving;
-	public Camera camera;
+	public Camera mainCamera;
 	float normalCameraHeight, lowCameraHeight;
+	public bool citySmall, cityBig;
+	public float smallScaleLimit, BigScaleLimit;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,8 @@ public class PlayerManager : MonoBehaviour {
 		speed = 25f;
 		normalCameraHeight = 1.8f;
 		lowCameraHeight = 0.5f;
+		smallScaleLimit = 0.5f;
+		BigScaleLimit = 3.5f;
 	}
 	
 	// Update is called once per frame
@@ -37,6 +41,12 @@ public class PlayerManager : MonoBehaviour {
 		//If the player moves, trees around it move, else trees change direction
 		int movingTreeLayer = 1 << 9;
 		if (isMoving) {
+			if (isMoving) {
+				transform.localScale -= new Vector3(0.0005f, 0.0005f, 0.0005f);
+				if (transform.localScale.magnitude < smallScaleLimit) {
+					transform.localScale = transform.localScale.normalized * smallScaleLimit;
+				}
+			}
 			foreach (Collider col in Physics.OverlapSphere (transform.position, 35, movingTreeLayer)) {
 				if (col.GetComponent<Tree>()) {
 					col.GetComponent<Tree>().MoveTree ();
@@ -53,31 +63,31 @@ public class PlayerManager : MonoBehaviour {
 
 
 		if (lowerCamera) {
-			if (camera.transform.position.y > lowCameraHeight) {
-				camera.transform.position = camera.transform.position + new Vector3(0, -0.01f, 0);
-				camera.fieldOfView -= 0.3f;
-				if (camera.fieldOfView < 30) {
-					camera.fieldOfView = 30;
+			if (mainCamera.transform.position.y > lowCameraHeight) {
+				mainCamera.transform.position = mainCamera.transform.position + new Vector3(0, -0.01f, 0);
+				mainCamera.fieldOfView -= 0.3f;
+				if (mainCamera.fieldOfView < 30) {
+					mainCamera.fieldOfView = 30;
 				}
 			}
 			else {
 				//camera.transform.position.y = 0.5f;
 				lowerCamera = false;
-				camera.fieldOfView = 30;
+				mainCamera.fieldOfView = 30;
 			}
 		}
 		else if (increaseCamera) {
-			if (camera.transform.position.y < normalCameraHeight) {
-				camera.transform.position = camera.transform.position + new Vector3(0, 0.01f, 0);
-				camera.fieldOfView += 0.3f;
-				if (camera.fieldOfView > 60) {
-					camera.fieldOfView = 60;
+			if (mainCamera.transform.position.y < normalCameraHeight) {
+				mainCamera.transform.position = mainCamera.transform.position + new Vector3(0, 0.01f, 0);
+				mainCamera.fieldOfView += 0.3f;
+				if (mainCamera.fieldOfView > 60) {
+					mainCamera.fieldOfView = 60;
 				}
 			}
 			else {
 				//camera.transform.position.y = 0.5f;
 				increaseCamera = false;
-				camera.fieldOfView = 60;
+				mainCamera.fieldOfView = 60;
 			}
 		}
 	}
@@ -86,7 +96,7 @@ public class PlayerManager : MonoBehaviour {
 	//Check keyboard (or other) inputs
 	void CheckInputs () {
 		if (Input.GetKey(KeyCode.W)) {
-			rigidbody.AddForce (transform.forward*(camera.transform.position.y*1.5f/normalCameraHeight)*Time.deltaTime*speed, ForceMode.VelocityChange);
+			rigidbody.AddForce (transform.forward/*(mainCamera.transform.position.y*1.5f/normalCameraHeight)*/*Time.deltaTime*speed, ForceMode.VelocityChange);
 		}
 		if (Input.GetKey(KeyCode.S)) {
 			rigidbody.AddForce (-transform.forward*Time.deltaTime*speed, ForceMode.VelocityChange);

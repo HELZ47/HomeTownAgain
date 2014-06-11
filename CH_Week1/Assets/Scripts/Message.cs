@@ -3,18 +3,20 @@ using System.Collections;
 
 public class Message : MonoBehaviour {
 
-//	GameObject player;
+	PlayerManager player;
 	public string message;
 	public bool selected;
 	public ParticleSystem particles;
 
 	// Use this for initialization
 	void Start () {
-//		player = GameObject.Find ("Player");
+		player = GameObject.Find ("Player").GetComponent<PlayerManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		particles.enableEmission = !selected;
+		if (particles) {
+			particles.enableEmission = !selected;
+		}
 	}
 }
