@@ -29,6 +29,9 @@ public class Transition_Marker : MonoBehaviour {
 					doorTree.transform.position = tempPosition;
 				}
 				player.GetComponent<PlayerManager>().audioManager.srcMsgActivation.clip = player.GetComponent<PlayerManager>().audioManager.clipTownMsg;
+				player.GetComponent<PlayerManager>().audioManager.bgForestBirdsTargetVol = 0.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgForestWindTargetVol = 0.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgTownTargetVol = 1.0f;
 			}
 		}
 
@@ -44,6 +47,10 @@ public class Transition_Marker : MonoBehaviour {
 //					tempPosition.z = doorDestination.transform.position.z;
 //					doorTree.transform.position = tempPosition;
 //				}
+				player.GetComponent<PlayerManager>().audioManager.srcMsgActivation.clip = player.GetComponent<PlayerManager>().audioManager.clipCityMsg;
+				player.GetComponent<PlayerManager>().audioManager.bgForestBirdsTargetVol = 0.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgForestWindTargetVol = 0.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgTownTargetVol = 1.0f;
 			}
 		}
 	}
