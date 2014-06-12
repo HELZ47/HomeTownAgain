@@ -7,6 +7,7 @@ public class MainCamera : MonoBehaviour {
 	public PlayerManager player;
 	public GameObject crosshair;
 	public GUIText onScreenMessage;
+	float messageDisplayTimer;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,13 @@ public class MainCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		messageDisplayTimer += Time.deltaTime;
+		if (messageDisplayTimer > 5f) {
+			onScreenMessage.enabled = false;
+		}
+
+
 		RaycastHit hit;
 		int layerMask = 1 << 10;
 
@@ -28,6 +36,7 @@ public class MainCamera : MonoBehaviour {
 		//Press "E" to interact with the message object depending on its type
 		if (Input.GetKeyDown(KeyCode.E) && crosshair.renderer.enabled == true) {
 			onScreenMessage.text = hit.collider.GetComponent<Message>().message;
+			displayMessage();
 			hit.collider.GetComponent<Message>().selected = true;
 			onScreenMessage.enabled = true;
 
@@ -47,5 +56,11 @@ public class MainCamera : MonoBehaviour {
 
 			//onScreenMessage.text = player.smallScaleLimit.ToString ();
 		}
+	}
+
+	//Display message for a period of time
+	void displayMessage () {
+		onScreenMessage.enabled = true;
+		messageDisplayTimer = 0;
 	}
 }
