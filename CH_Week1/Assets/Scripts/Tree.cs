@@ -6,9 +6,11 @@ public class Tree : MonoBehaviour {
 	//Fields
 	bool increaseSize;
 	float xForce, zForce;
+	Vector3 prevPosition, currentPosition;
 
 	// Use this for initialization
 	void Start () {
+		prevPosition = transform.position;
 		//xForce = Random.Range (-3f, 3f);
 //		zForce = Random.Range (-3f, 3f);
 		GenerateDirection ();
@@ -16,6 +18,7 @@ public class Tree : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		currentPosition = transform.position;
 		if (Input.GetKey(KeyCode.I)) {
 			increaseSize = true;
 //			Vector3 temp = transform.localScale;
@@ -35,6 +38,16 @@ public class Tree : MonoBehaviour {
 		}
 		else {
 			increaseSize = false;
+		}
+
+		if (currentPosition != prevPosition) {
+			int layer9 = 1 << 9;
+			if (Physics.CheckSphere (currentPosition, 1, layer9)) {
+				currentPosition = prevPosition;
+			}
+			else {
+				prevPosition = currentPosition;
+			}
 		}
 
 		//rigidbody.AddForce (xForce, 0, zForce);

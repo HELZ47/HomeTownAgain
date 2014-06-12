@@ -10,8 +10,7 @@ public class LevelLoader : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.timeSinceLevelLoad > 1f) {
-//			Application.LoadLevel("demo");
+		if (Input.anyKey) {
 			Application.LoadLevel ("demo");
 		}
 
