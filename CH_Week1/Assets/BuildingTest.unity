@@ -4571,6 +4571,68 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1538248033}
   m_GameObject: {fileID: 1224082442}
   m_Mesh: {fileID: 4300026, guid: e8558bc1ba24c4710b0ddac07ec906f2, type: 3}
+--- !u!1 &1244147297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1244147299}
+  - 108: {fileID: 1244147298}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1244147298
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244147297}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: .443137258, g: .117647059, b: .125490203, a: 1}
+  m_Intensity: .00999999978
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1244147299
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244147297}
+  m_LocalRotation: {x: .898284078, y: -.016658105, z: -.351862907, w: .262679845}
+  m_LocalPosition: {x: -25.2731247, y: 31.5484715, z: 15.5695677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1244671785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6270,7 +6332,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .53725493, g: .521568656, b: .56078434, a: 1}
+  m_Color: {r: .463235319, g: .521568656, b: .566176474, a: 1}
   m_Intensity: 1.83000004
   m_Range: 29.0799999
   m_SpotAngle: 30
@@ -6346,6 +6408,7 @@ GameObject:
   - 124: {fileID: 1554845969}
   - 81: {fileID: 1554845968}
   - 114: {fileID: 1554845967}
+  - 114: {fileID: 1554845971}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6438,6 +6501,35 @@ Behaviour:
   m_PrefabInternal: {fileID: 1082576652}
   m_GameObject: {fileID: 1554845964}
   m_Enabled: 1
+--- !u!114 &1554845971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554845964}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f202adaee27c646fa9d90739bb84aa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizeFocus: 0
+  focalLength: 58.0400009
+  focalSize: .5
+  aperture: 5.4000001
+  focalTransform: {fileID: 0}
+  maxBlurSize: 7.11000013
+  highResolution: 0
+  blurType: 1
+  blurSampleCount: 2
+  nearBlur: 0
+  foregroundOverlap: 1
+  dofHdrShader: {fileID: 4800000, guid: acd613035ff3e455e8abf23fdc8c8c24, type: 3}
+  dx11BokehShader: {fileID: 0}
+  dx11BokehThreshhold: -.49000001
+  dx11SpawnHeuristic: .0874999985
+  dx11BokehTexture: {fileID: 0}
+  dx11BokehScale: 1.20000005
+  dx11BokehIntensity: 2.5
 --- !u!1 &1555640781
 GameObject:
   m_ObjectHideFlags: 0
