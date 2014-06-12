@@ -48,9 +48,8 @@ public class Transition_Marker : MonoBehaviour {
 //					doorTree.transform.position = tempPosition;
 //				}
 				player.GetComponent<PlayerManager>().audioManager.srcMsgActivation.clip = player.GetComponent<PlayerManager>().audioManager.clipCityMsg;
-				player.GetComponent<PlayerManager>().audioManager.bgForestBirdsTargetVol = 0.0f;
-				player.GetComponent<PlayerManager>().audioManager.bgForestWindTargetVol = 0.0f;
-				player.GetComponent<PlayerManager>().audioManager.bgTownTargetVol = 1.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgTownTargetVol = 0.0f;
+				player.GetComponent<PlayerManager>().audioManager.bgCityTargetVol = 1.0f;
 			}
 		}
 	}
