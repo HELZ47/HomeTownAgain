@@ -88,6 +88,23 @@ ModelImporter:
     4300028: ID88
     4300030: ID94
     4300032: ID100
+    6400000: ID10
+    6400002: ID100
+    6400004: ID16
+    6400006: ID22
+    6400008: ID28
+    6400010: ID34
+    6400012: ID40
+    6400014: ID46
+    6400016: ID52
+    6400018: ID58
+    6400020: ID64
+    6400022: ID70
+    6400024: ID76
+    6400026: ID82
+    6400028: ID88
+    6400030: ID94
+    6400032: //RootNode
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -107,9 +124,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .0399999991
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

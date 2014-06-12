@@ -1,14 +1,32 @@
 fileFormatVersion: 2
-guid: a8569d00d119146a6a2df55bc4778899
+guid: 3ceec397fe78c4c67be4ce63ab17f263
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: ID10
+    100002: ID16
+    100004: ID22
+    100006: //RootNode
+    400000: ID10
+    400002: ID16
+    400004: ID22
+    400006: //RootNode
+    2300000: ID10
+    2300002: ID16
+    2300004: ID22
+    2300006: //RootNode
+    3300000: ID10
+    3300002: ID16
+    3300004: ID22
+    3300006: //RootNode
     4300000: SketchUp
-    6400000: //RootNode
+    4300002: ID10
+    4300004: ID16
+    4300006: ID22
+    6400000: ID10
+    6400002: ID16
+    6400004: ID22
+    6400006: //RootNode
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -28,7 +46,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .000199999995
+    globalScale: 1
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1
