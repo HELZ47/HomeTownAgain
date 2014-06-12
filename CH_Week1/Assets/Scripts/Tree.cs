@@ -42,7 +42,11 @@ public class Tree : MonoBehaviour {
 
 		if (currentPosition != prevPosition) {
 			int layer9 = 1 << 9;
+			int layer12 = 1 << 12;
 			if (Physics.CheckSphere (currentPosition, 1, layer9)) {
+				currentPosition = prevPosition;
+			}
+			else if (Physics.CheckSphere (currentPosition, 1, layer12)) {
 				currentPosition = prevPosition;
 			}
 			else {

@@ -37,23 +37,23 @@ public class MainCamera : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.E) && crosshair.renderer.enabled == true) {
 			onScreenMessage.text = hit.collider.GetComponent<Message>().message;
 			displayMessage();
-			hit.collider.GetComponent<Message>().selected = true;
+
 			onScreenMessage.enabled = true;
 
-			if (player.citySmall && hit.collider.GetComponent<Message>().messageType == Message.MessageType.SmallCity) {
+			if (player.citySmall && hit.collider.GetComponent<Message>().messageType == Message.MessageType.SmallCity && hit.collider.GetComponent<Message>().selected == false) {
 				player.smallScaleLimit *= 0.8f;
 				if (player.smallScaleLimit < 0.1f) {
 					player.smallScaleLimit = 0.1f;
 				}
 			}
 
-			if (player.cityBig && hit.collider.GetComponent<Message>().messageType == Message.MessageType.BigCity) {
+			if (player.cityBig && hit.collider.GetComponent<Message>().messageType == Message.MessageType.BigCity && hit.collider.GetComponent<Message>().selected == false) {
 				player.BigScaleLimit *= 1.2f;
 				if (player.BigScaleLimit > 15f) {
 					player.BigScaleLimit = 15f;
 				}
 			}
-
+			hit.collider.GetComponent<Message>().selected = true;
 			//onScreenMessage.text = player.smallScaleLimit.ToString ();
 		}
 	}
