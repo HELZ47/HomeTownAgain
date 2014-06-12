@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axes: 2
   sensitivityX: 15
-  sensitivityY: 15
+  sensitivityY: 5
   minimumX: -360
   maximumX: 360
   minimumY: -60
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 1
-  sensitivityX: 15
+  sensitivityX: 5
   sensitivityY: 15
   minimumX: -360
   maximumX: 360
