@@ -9,16 +9,19 @@ public class Message : MonoBehaviour {
 	public ParticleSystem particles;
 	public enum MessageType { Forrest, SmallCity, BigCity };
 	public MessageType messageType;
+	public Light treeLight;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player").GetComponent<PlayerManager> ();
+		player = GameObject.Find ("First Person Controller").GetComponent<PlayerManager> ();
+		particles = GetComponentInChildren<ParticleSystem> ();
+		treeLight = GetComponentInChildren<Light> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (messageType == MessageType.Forrest && particles) {
-			particles.enableEmission = !selected;
+			particles.enableEmission = treeLight.enabled = !selected;
 		}
 	}
 }

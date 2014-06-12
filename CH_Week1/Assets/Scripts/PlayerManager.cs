@@ -29,10 +29,10 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
 
 		//Move the player according to the keyboard inputs
-		CheckInputs ();
+		//CheckInputs ();
 
 		//If the player's velocity is smaller than 1, the player's not moving
-		if (rigidbody.velocity.magnitude <= 1) {
+		if (/*rigidbody.velocity.magnitude <= 1 &&*/ GetComponent<CharacterController>().velocity.magnitude <= 0.5f) {
 			isMoving = false;
 		}
 		else {
