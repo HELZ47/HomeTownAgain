@@ -28,6 +28,7 @@ public class Transition_Marker : MonoBehaviour {
 					tempPosition.z = doorDestination.transform.position.z;
 					doorTree.transform.position = tempPosition;
 				}
+				player.GetComponent<PlayerManager>().audioManager.srcMsgActivation.clip = player.GetComponent<PlayerManager>().audioManager.clipTownMsg;
 			}
 		}
 

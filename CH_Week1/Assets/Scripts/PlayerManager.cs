@@ -10,7 +10,8 @@ public class PlayerManager : MonoBehaviour {
 	float normalCameraHeight, lowCameraHeight;
 	public bool citySmall, cityBig;
 	public float smallScaleLimit, BigScaleLimit;
-
+	public PlayerAudioManager audioManager;
+	
 	// Use this for initialization
 	void Start () {
 		//Hide the mouse cursor
@@ -54,10 +55,19 @@ public class PlayerManager : MonoBehaviour {
 					transform.localScale = transform.localScale.normalized * BigScaleLimit;
 				}
 			}
+			
+			bool anyTreeMoving = false;
 			foreach (Collider col in Physics.OverlapSphere (transform.position, 20, movingTreeLayer)) {
 				if (col.GetComponent<Tree>()) {
 					col.GetComponent<Tree>().MoveTree ();
+					anyTreeMoving = true;
 				}
+			}
+			if (anyTreeMoving) {
+				audioManager.rustlingTargetVol = 1.0f;
+			}
+			else {
+				audioManager.rustlingTargetVol = 0.0f;
 			}
 		}
 		else {
@@ -66,6 +76,7 @@ public class PlayerManager : MonoBehaviour {
 					col.GetComponent<Tree>().GenerateDirection ();
 				}
 			}
+			audioManager.rustlingTargetVol = 0.0f;
 		}
 
 

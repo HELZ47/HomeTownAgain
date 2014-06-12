@@ -62,5 +62,6 @@ public class MainCamera : MonoBehaviour {
 	void displayMessage () {
 		onScreenMessage.enabled = true;
 		messageDisplayTimer = 0;
+		player.audioManager.srcMsgActivation.Play ();
 	}
 }
