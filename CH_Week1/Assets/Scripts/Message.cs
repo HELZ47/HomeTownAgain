@@ -7,6 +7,8 @@ public class Message : MonoBehaviour {
 	public string message;
 	public bool selected;
 	public ParticleSystem particles;
+	public enum MessageType { Forrest, SmallCity, BigCity };
+	public MessageType messageType;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +17,7 @@ public class Message : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (particles) {
+		if (messageType == MessageType.Forrest && particles) {
 			particles.enableEmission = !selected;
 		}
 	}

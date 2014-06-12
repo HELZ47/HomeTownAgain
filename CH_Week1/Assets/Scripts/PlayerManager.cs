@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour {
 		normalCameraHeight = 1.8f;
 		lowCameraHeight = 0.5f;
 		smallScaleLimit = 0.5f;
-		BigScaleLimit = 3.5f;
+		BigScaleLimit = 5f;
 	}
 	
 	// Update is called once per frame
@@ -41,20 +41,27 @@ public class PlayerManager : MonoBehaviour {
 		//If the player moves, trees around it move, else trees change direction
 		int movingTreeLayer = 1 << 9;
 		if (isMoving) {
-			if (isMoving) {
-				transform.localScale -= new Vector3(0.0005f, 0.0005f, 0.0005f);
+			//If the player's in the small city, it will shrink as it moves
+			if (citySmall) {
+				transform.localScale -= new Vector3(0.0003f, 0.0003f, 0.0003f);
 				if (transform.localScale.magnitude < smallScaleLimit) {
 					transform.localScale = transform.localScale.normalized * smallScaleLimit;
 				}
 			}
-			foreach (Collider col in Physics.OverlapSphere (transform.position, 35, movingTreeLayer)) {
+			if (cityBig) {
+				transform.localScale += new Vector3(0.0003f, 0.0003f, 0.0003f);
+				if (transform.localScale.magnitude > BigScaleLimit) {
+					transform.localScale = transform.localScale.normalized * BigScaleLimit;
+				}
+			}
+			foreach (Collider col in Physics.OverlapSphere (transform.position, 20, movingTreeLayer)) {
 				if (col.GetComponent<Tree>()) {
 					col.GetComponent<Tree>().MoveTree ();
 				}
 			}
 		}
 		else {
-			foreach (Collider col in Physics.OverlapSphere (transform.position, 35, movingTreeLayer)) {
+			foreach (Collider col in Physics.OverlapSphere (transform.position, 20, movingTreeLayer)) {
 				if (col.GetComponent<Tree>()) {
 					col.GetComponent<Tree>().GenerateDirection ();
 				}
