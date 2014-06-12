@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color1: {r: .105882354, g: .101960786, b: .113725491, a: 1}
-  color2: {r: .0514705777, g: .0442798361, b: .0478752069, a: 1}
+  color2: {r: .147058845, g: .133001745, b: .140030295, a: 1}
   duration: 3
 --- !u!1 &136462319
 GameObject:
@@ -2453,7 +2453,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321822522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 012d81edbaf594e29933cb3ae2eab70e, type: 2}
   m_CullingMode: 0
