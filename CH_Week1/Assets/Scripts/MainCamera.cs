@@ -4,6 +4,7 @@ using System.Collections;
 public class MainCamera : MonoBehaviour {
 
 	//Fields
+	public PlayerManager player;
 	public GameObject crosshair;
 	public GUIText onScreenMessage;
 
@@ -30,6 +31,14 @@ public class MainCamera : MonoBehaviour {
 			onScreenMessage.text = hit.collider.GetComponent<Message>().message;
 			hit.collider.GetComponent<Message>().selected = true;
 			onScreenMessage.enabled = true;
+			if (player.citySmall) {
+				player.smallScaleLimit *= 0.8f;
+				if (player.smallScaleLimit < 0.1f) {
+					player.smallScaleLimit = 0.1f;
+				}
+			}
+
+			onScreenMessage.text = player.smallScaleLimit.ToString ();
 		}
 	}
 }
