@@ -19,7 +19,7 @@ public class MainCamera : MonoBehaviour {
 
 		messageDisplayTimer += Time.deltaTime;
 		if (messageDisplayTimer > 5f) {
-			onScreenMessage.enabled = false;
+			onScreenMessage.GetComponent<OnCameraMessage>().appearing = false;
 		}
 
 
@@ -60,7 +60,7 @@ public class MainCamera : MonoBehaviour {
 
 	//Display message for a period of time
 	void displayMessage () {
-		onScreenMessage.enabled = true;
+		onScreenMessage.GetComponent<OnCameraMessage>().appearing = true;
 		messageDisplayTimer = 0;
 		player.audioManager.srcMsgActivation.Play ();
 	}
