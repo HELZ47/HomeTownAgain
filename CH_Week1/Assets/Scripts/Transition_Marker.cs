@@ -18,7 +18,7 @@ public class Transition_Marker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (transitionType == TransitionType.SmallCity) {
-			if (Vector3.Magnitude (player.transform.position - transform.position) < 2.5f) {
+			if (Vector3.Magnitude (player.transform.position - transform.position) < 7.5f) {
 				player.GetComponent<PlayerManager>().citySmall = true;
 				player.GetComponent<PlayerManager>().mainCamera.GetComponent<MainCamera>().onScreenMessage.text = "small city";
 				player.GetComponent<PlayerManager>().mainCamera.GetComponent<MainCamera>().onScreenMessage.enabled = true;
@@ -36,7 +36,7 @@ public class Transition_Marker : MonoBehaviour {
 		}
 
 		if (transitionType == TransitionType.BigCity) {
-			if (Vector3.Magnitude (player.transform.position - transform.position) < 2.5f) {
+			if (Vector3.Magnitude (player.transform.position - transform.position) < 7.5f) {
 				player.GetComponent<PlayerManager>().cityBig = true;
 				player.GetComponent<PlayerManager>().citySmall = false;
 				player.GetComponent<PlayerManager>().mainCamera.GetComponent<MainCamera>().onScreenMessage.text = "big city";

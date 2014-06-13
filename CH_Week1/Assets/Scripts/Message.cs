@@ -23,5 +23,8 @@ public class Message : MonoBehaviour {
 		if (messageType == MessageType.Forrest && particles) {
 			particles.enableEmission = treeLight.enabled = !selected;
 		}
+		else if (messageType == MessageType.SmallCity && treeLight) {
+			treeLight.enabled = !selected;
+		}
 	}
 }

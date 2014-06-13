@@ -22,7 +22,7 @@ public class CameraClipingDistance : MonoBehaviour {
 		distances [11] = 15;
 
 		//Clip town
-		distances [13] = 75;
+		distances [13] = 300;
 		camera.layerCullDistances = distances;
 	}
 	

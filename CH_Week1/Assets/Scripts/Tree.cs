@@ -58,14 +58,14 @@ public class Tree : MonoBehaviour {
 	}
 
 	public void GenerateDirection () {
-		xForce = Random.Range (-1f, 1f) * 5f;
-		zForce = Random.Range (-1f, 1f) * 5f;
-		if (rigidbody.velocity.magnitude > 10) {
-			rigidbody.velocity = rigidbody.velocity.normalized * 9.5f;
-		}
+		xForce = Random.Range (-1f, 1f) * 150f;
+		zForce = Random.Range (-1f, 1f) * 150f;
+//		if (rigidbody.velocity.magnitude > 10) {
+//			rigidbody.velocity = rigidbody.velocity.normalized * 9.5f;
+//		}
 	}
 
 	public void MoveTree () {
-		rigidbody.AddForce (xForce, 0, zForce, ForceMode.Acceleration);
+		rigidbody.AddForce (xForce * Time.deltaTime, 0, zForce * Time.deltaTime, ForceMode.Acceleration);
 	}
 }

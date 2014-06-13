@@ -5,36 +5,39 @@ public class MainCamera : MonoBehaviour {
 
 	//Fields
 	public PlayerManager player;
-	public GameObject crosshair;
+	//public GameObject crosshair;
+	public GUIText crosshair, crosshair_target;
 	public GUIText onScreenMessage;
 	float messageDisplayTimer;
 
 	// Use this for initialization
 	void Start () {
-	
+		onScreenMessage.GetComponent<OnCameraMessage>().appearing = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		RaycastHit hit;
+		int layerMask = 1 << 10;
+
 		messageDisplayTimer += Time.deltaTime;
-		if (messageDisplayTimer > 5f) {
+		if (!Physics.Raycast(transform.position, transform.forward, out hit, 10, layerMask) && messageDisplayTimer > 5f) {
 			onScreenMessage.GetComponent<OnCameraMessage>().appearing = false;
 		}
 
 
-		RaycastHit hit;
-		int layerMask = 1 << 10;
-
 		//Display the crosshair if the camera is look at the message object at close distance
-		if (Physics.Raycast(transform.position, Vector3.Normalize(crosshair.transform.position - transform.position), out hit, 10, layerMask)) {
-			crosshair.renderer.enabled = true;
+		if (Physics.Raycast(transform.position, transform.forward, out hit, 10, layerMask)) {
+			crosshair.enabled = true;
+			crosshair_target.enabled = true;
 		} else {
-			crosshair.renderer.enabled = false;
+			crosshair.enabled = false;
+			crosshair_target.enabled = false;
 		}
 
 		//Press "E" to interact with the message object depending on its type
-		if (Input.GetKeyDown(KeyCode.E) && crosshair.renderer.enabled == true) {
+		if (Input.GetKeyDown(KeyCode.E) && crosshair.enabled == true) {
 			onScreenMessage.text = hit.collider.GetComponent<Message>().message;
 			displayMessage();
 
@@ -55,6 +58,11 @@ public class MainCamera : MonoBehaviour {
 			}
 			hit.collider.GetComponent<Message>().selected = true;
 			//onScreenMessage.text = player.smallScaleLimit.ToString ();
+		}
+
+		if (onScreenMessage.GetComponent<OnCameraMessage>().appearing) {
+			crosshair.enabled = false;
+			crosshair_target.enabled = false;
 		}
 	}
 
