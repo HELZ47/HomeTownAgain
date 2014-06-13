@@ -20,6 +20,9 @@ public class CameraClipingDistance : MonoBehaviour {
 
 		//Clip grass
 		distances [11] = 15;
+
+		//Clip town
+		distances [13] = 75;
 		camera.layerCullDistances = distances;
 	}
 	
