@@ -28,6 +28,12 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (!(cityBig || citySmall)) {
+			Vector3 pos = transform.position;
+			pos.y = 1.677385f;
+			transform.position = pos;
+		} 
+
 		//Move the player according to the keyboard inputs
 		//CheckInputs ();
 
