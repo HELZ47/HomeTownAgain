@@ -8,15 +8,12 @@ public class EndGameMarker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		print ("Hello!");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Vector3.Magnitude(player.transform.position - transform.position) < 1.5f) {
+		if (Vector3.Magnitude(player.transform.position - transform.position) < 5.5f) {
 			Application.LoadLevel ("Title");
 		}
-		print (Vector3.Magnitude (player.transform.position - transform.position));
-		print ("Hello!");
 	}
 }
