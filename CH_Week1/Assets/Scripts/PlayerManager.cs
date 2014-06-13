@@ -112,6 +112,11 @@ public class PlayerManager : MonoBehaviour {
 				mainCamera.fieldOfView = 60;
 			}
 		}
+
+		//Press R to restart the game
+		if (Input.GetKeyDown(KeyCode.R)) {
+			Application.LoadLevel("Title");
+		}
 	}
 
 
