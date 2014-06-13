@@ -44,13 +44,17 @@ public class PlayerManager : MonoBehaviour {
 		if (isMoving) {
 			//If the player's in the small city, it will shrink as it moves
 			if (citySmall) {
-				transform.localScale -= new Vector3(0.0003f, 0.0003f, 0.0003f);
+				if (transform.localScale.magnitude > smallScaleLimit) {
+					transform.localScale -= new Vector3(0.0003f, 0.0003f, 0.0003f);
+				}
 				if (transform.localScale.magnitude < smallScaleLimit) {
 					transform.localScale = transform.localScale.normalized * smallScaleLimit;
 				}
 			}
 			if (cityBig) {
-				transform.localScale += new Vector3(0.0003f, 0.0003f, 0.0003f);
+				if (transform.localScale.magnitude < BigScaleLimit) {
+					transform.localScale += new Vector3(0.0005f, 0.0005f, 0.0005f);
+				}
 				if (transform.localScale.magnitude > BigScaleLimit) {
 					transform.localScale = transform.localScale.normalized * BigScaleLimit;
 				}

@@ -42,7 +42,7 @@ public class Transition_Marker : MonoBehaviour {
 		}
 
 		if (transitionType == TransitionType.BigCity) {
-			if (Vector3.Magnitude (player.transform.position - transform.position) < 7.5f) {
+			if (Vector3.Magnitude (player.transform.position - transform.position) < 15.5f) {
 				player.GetComponent<PlayerManager>().cityBig = true;
 				player.GetComponent<PlayerManager>().citySmall = false;
 				player.GetComponent<PlayerManager>().mainCamera.GetComponent<MainCamera>().onScreenMessage.text = "big city";

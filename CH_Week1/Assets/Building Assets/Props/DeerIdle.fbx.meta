@@ -44,6 +44,7 @@ ModelImporter:
     4300000: Cylinder
     7400000: Default Take
     7400002: ArmatureAction
+    7400004: ArmatureAction0
     9500000: //RootNode
     13700000: Cylinder
   materials:
@@ -53,20 +54,148 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ArmatureAction0
+      takeName: ArmatureAction
+      firstFrame: -1
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone_001
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_008
+        weight: 1
+      - path: Armature/Bone_002/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Bone_002/Bone_008/Bone_009/Bone_014
+        weight: 1
+      - path: Armature/Bone_002/Bone_010
+        weight: 1
+      - path: Armature/Bone_002/Bone_010/Bone_011
+        weight: 1
+      - path: Armature/Bone_002/Bone_010/Bone_011/Bone_015
+        weight: 1
+      - path: Armature/Bone_003
+        weight: 1
+      - path: Armature/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_003/Bone_004/Bone_013
+        weight: 1
+      - path: Armature/Bone_005
+        weight: 1
+      - path: Armature/Bone_006
+        weight: 1
+      - path: Armature/Bone_006/Bone_007
+        weight: 1
+      - path: Armature/Bone_006/Bone_007/Bone_012
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ArmatureAction
+      takeName: ArmatureAction
+      firstFrame: -1
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone_001
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_008
+        weight: 1
+      - path: Armature/Bone_002/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Bone_002/Bone_008/Bone_009/Bone_014
+        weight: 1
+      - path: Armature/Bone_002/Bone_010
+        weight: 1
+      - path: Armature/Bone_002/Bone_010/Bone_011
+        weight: 1
+      - path: Armature/Bone_002/Bone_010/Bone_011/Bone_015
+        weight: 1
+      - path: Armature/Bone_003
+        weight: 1
+      - path: Armature/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_003/Bone_004/Bone_013
+        weight: 1
+      - path: Armature/Bone_005
+        weight: 1
+      - path: Armature/Bone_006
+        weight: 1
+      - path: Armature/Bone_006/Bone_007
+        weight: 1
+      - path: Armature/Bone_006/Bone_007/Bone_012
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 4
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -78,10 +207,10 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 23
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
-    tangentImportMode: 0
+    normalImportMode: 1
+    tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -94,7 +223,7 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Armature
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   userData: 
