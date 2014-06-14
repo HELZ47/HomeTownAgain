@@ -22,16 +22,16 @@ public class MainCamera : MonoBehaviour {
 		int layerMask = 1 << 10;
 
 		messageDisplayTimer += Time.deltaTime;
-		if (!Physics.Raycast(transform.position, transform.forward, out hit, 10, layerMask) && messageDisplayTimer > 5f) {
+		if (!Physics.Raycast(transform.position, transform.forward, out hit, 13, layerMask) && messageDisplayTimer > 5f) {
 			onScreenMessage.GetComponent<OnCameraMessage>().appearing = false;
 		}
 
 
 		//Display the crosshair if the camera is look at the message object at close distance
-		if (Physics.Raycast(transform.position, transform.forward, out hit, 10, layerMask)) {
-			if (hit.collider.GetComponent<Message>().messageType == Message.MessageType.Forrest) {
+		if (Physics.Raycast(transform.position, transform.forward, out hit, 13, layerMask)) {
+			//if (hit.collider.GetComponent<Message>().messageType == Message.MessageType.Forrest) {
 				crosshair.enabled = true;
-			}
+			//}
 			crosshair_target.enabled = true;
 		} else {
 			crosshair.enabled = false;
@@ -39,7 +39,7 @@ public class MainCamera : MonoBehaviour {
 		}
 
 		//Press "E" to interact with the message object depending on its type
-		if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0) ) && crosshair.enabled == true) {
+		if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0) ) && crosshair_target.enabled == true) {
 			onScreenMessage.text = hit.collider.GetComponent<Message>().message;
 			displayMessage();
 
