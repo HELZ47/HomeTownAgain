@@ -26,5 +26,8 @@ public class Message : MonoBehaviour {
 		else if (messageType == MessageType.SmallCity && treeLight) {
 			treeLight.enabled = !selected;
 		}
+		else if (messageType == MessageType.BigCity && treeLight) {
+			treeLight.enabled = !selected;
+		}
 	}
 }
